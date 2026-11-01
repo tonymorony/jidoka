@@ -1,0 +1,35 @@
+# Words that must not appear in the folder. Every entry here is made up.
+#
+# Copy this file to .jidoka-scrub-words in the folder that you scrub, or pass
+# its path as the second argument of checks/scrub.sh. Put your own words in it.
+# Keep your copy out of version control: it names what it hides.
+#
+# One word or pattern on each line. Case does not matter.
+# A pattern is an extended regular expression.
+# A line that starts with # is a comment. To search for a # sign, write [#].
+
+# A product name and its code name.
+zorblat
+project[ -]?quuxmill
+
+# A short name that is also the start of a common word: say what may not follow it.
+zorb([^a-z]|$)
+
+# A company.
+fernwick (and|&) dobbs
+
+# A person.
+pat[ .]?exampleson
+
+# An account or a team identifier.
+ZB-[0-9]{6}
+app\.zorblat\.[a-z]+
+
+# A host that is not written as a link.
+zorblat-api\.[a-z]{2,}
+
+# A ticket or pull request number of another project.
+[#][0-9]{2,5}
+
+# A home folder of a machine.
+/(Users|home)/[a-z0-9._-]+/
